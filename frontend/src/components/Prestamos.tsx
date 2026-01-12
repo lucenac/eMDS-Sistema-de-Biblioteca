@@ -67,8 +67,8 @@ export default function Prestamos() {
           
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-6xl lg:px-7">
         <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {prestamos.map((prestamo, index) => (
-            <div key={index} className="group relative">
+          {prestamos.map((prestamo) => (
+            <div key={prestamo._id} className="group relative">
               <div className="mt-2 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-800">

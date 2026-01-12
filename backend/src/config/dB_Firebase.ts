@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import path from "path";
+import path from "node:path";
 
 const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 

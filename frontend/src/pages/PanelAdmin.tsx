@@ -47,19 +47,26 @@ export default function PanelAdmin() {
     }
   };
 
-  // funcion para verificar el tipo usuario
-  const verificarUsurio = useCallback((token:string | null)=>{
-    if(!token){
-      navigate('/libros');
-    }else{
-      const decoded: DecodedToken = jwtDecode(token);
-      const {tipo} = decoded
-      if(tipo === "Usuario" || !tipo){
+  const verificarUsuario = useCallback((token: string | null) => {
+    if (!token) {
         navigate('/libros');
-      }
+        return;
     }
- 
-  },[navigate])
+
+    try {
+        const decoded: DecodedToken = jwtDecode(token);
+        const { tipo } = decoded;
+
+        if (tipo === "Usuario" || !tipo) {
+            navigate('/libros');
+        }
+        
+    } catch (error) {
+        console.error("Token inválido ou corrompido:", error);
+        navigate('/libros');
+    }
+
+}, [navigate]);
 
   //funcion para eliminar libro
   const eliminarLibro = async (id: string) => {
@@ -97,10 +104,10 @@ export default function PanelAdmin() {
     // Obtiene el token almacenado localmente
     const token = localStorage.getItem('token');
     
-      verificarUsurio(token);
+      verificarUsuario(token);
     
     obtenerLibros();
-  }, [verificarUsurio]);
+  }, [verificarUsuario]);
 
   if (!loading) { // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     return <div>Cargando Libros...</div>;

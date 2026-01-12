@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import serverName from "../components/Login"
 
 export default function AtenticacionUser() {
 
@@ -24,7 +23,6 @@ export default function AtenticacionUser() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-        //const response = await axios.post(`${serverName}/api/users/`,dataForm);
         const response = await axios.post("http://localhost:3000/api/users/",dataForm);
         const mensaje = response.data.smg;
         setMensaje(mensaje)

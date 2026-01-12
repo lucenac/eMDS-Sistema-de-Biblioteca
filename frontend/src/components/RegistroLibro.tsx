@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { PhotoIcon } from '@heroicons/react/24/solid';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
-import serverName from "../components/Login"
 
 interface ILibro {
     _id: string;

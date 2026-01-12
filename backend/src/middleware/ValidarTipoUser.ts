@@ -21,6 +21,7 @@ export const validarTipoUsuario = (tipo: string) => {
             }
             next(); 
         } catch (error) {
+            console.error("Erro ao validar: ", error);
             res.status(401).json({ msg: "Token inválido" });
             return ;
         }

@@ -11,6 +11,7 @@ export const crearPrestamoBiblioteca = async (req: Request, res: Response): Prom
         res.status(201).json({ msg: "Prestamo creado correctamente" });
         return;
     } catch (error) {
+        console.error(error);
         res.status(500).json({ msg: "Error al crear prestamo" });
         return;
     }
@@ -56,6 +57,7 @@ export const editarPrestamoBiblioteca = async (req: Request, res: Response): Pro
         res.status(200).json({ msg: "Prestamo actualizado correctamente" });
         return;
     } catch (error) {
+        console.error("Erro ao atualizar: ", error);
         res.status(500).json({ msg: "Error al actualizar prestamo" });
         return;
     }
@@ -74,6 +76,7 @@ export const eliminarPrestamoBiblioteca = async (req: Request, res: Response): P
         res.status(200).json({ msg: "Prestamo eliminado correctamente" });
         return;
     } catch (error) {
+        console.error("Erro ao apagar: ", error);
         res.status(500).json({ msg: "Error al eliminar prestamo" });
         return;
     }
