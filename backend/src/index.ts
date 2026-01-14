@@ -1,29 +1,33 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from 'express';
 import cors from "cors";
-import dotenv from "dotenv";
+import conectarDB from './config/db';
 
-const app  = express();
-dotenv.config();
-app.use(cors());
-app.use(express.json());
+// Routes
+import AuthRoutes from './routes/auth.routes';
+import BookRoutes from './routes/books.routes';
+import LoanRoutes from './routes/loans.routes';
+
+const app = express();
 const port = process.env.PORT || 4002;
 
+app.use(cors());
+app.use(express.json());
 
-//importando rutas
-import conectarDB from './config/dB_Mongo';
-import LibroRoutes from './routes/Libro.routes';
-import UserRoutes from './routes/User.routes';
-import PrestamoBibliotecaRoutes from './routes/PrestamoBiblioteca.routes';
-
-app.listen(port,()=>{
-    console.log(`servidor corriendo en el puerto ${port}`)
-})
+// Database Connection
 conectarDB();
 
-// global routes
-app.use("/api/libros",LibroRoutes);
-app.use("/api/users",UserRoutes);
-app.use("/api/prestamos",PrestamoBibliotecaRoutes);
+// Global Routes
+app.use("/api/auth", AuthRoutes);
+app.use("/api/books", BookRoutes);
+app.use("/api/loans", LoanRoutes);
+app.use("/uploads", express.static("uploads"));
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
 
 
 

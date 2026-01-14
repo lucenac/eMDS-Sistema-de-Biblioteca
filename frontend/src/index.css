@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-
+body {
+  @apply bg-primary-bg text-white antialiased;
+  background-image: linear-gradient(to bottom right, #1e1b4b, #312e81);
+  min-height: 100vh;
+}

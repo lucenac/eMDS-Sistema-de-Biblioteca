@@ -1,133 +1,154 @@
-# **Sistema de Biblioteca**
+# 📚 Sistema de Biblioteca (eMDS)
 
-Este projeto é um sistema de gestão de biblioteca desenvolvido para administrar livros, usuários e empréstimos, com foco na eficiência. O *backend* é construído com **Node.js** e **TypeScript**, enquanto o *frontend* é desenvolvido com **React** e **TypeScript**.  
-O sistema utiliza **Firebase Storage** para armazenar e gerenciar imagens de forma segura.  
----
+> Uma plataforma moderna e eficiente para gestão de bibliotecas, empréstimos e acervo digital.
 
-## **Estrutura do Projeto**
+![Logo](frontend/src/assets/svg/logo.svg)
 
-O repositório está organizado nas seguintes pastas:
+## 🚀 Sobre o Projeto
 
-* **backend**: Contém o código do servidor desenvolvido com Node.js e TypeScript.  
-* **frontend**: Contém a aplicação cliente desenvolvida com React e TypeScript.
+Este sistema foi desenvolvido para facilitar a administração de uma biblioteca, permitindo que **Administradores** gerenciem o acervo e usuários, enquanto **Estudantes** podem consultar livros, realizar empréstimos e acompanhar seu histórico.
 
----
-
-## **Instalação e Configuração**
-
-### **Requisitos Prévios**
-
-* **Node.js** (versão 16 ou superior).  
-* **npm** ou **yarn** para gerenciar dependências.  
-* **TypeScript** instalado globalmente (opcional).  
-* **Firebase** configurado para lidar com o armazenamento de imagens.
-
-### **Backend**
-
-**Instalação de dependências:**
-
-```
-cd backend  
-npm install
-```
-
-
-### **Configuração do Firebase Service Account**
-
-Para que o servidor possa acessar o Firebase Storage, você precisa gerar um arquivo de credenciais:
-
-1. Acesse o **console do Firebase** e navegue até **Configurações do Projeto \> Contas de Serviço**.  
-2. Clique em **Gerar nova chave privada**. Isso fará o download de um arquivo JSON.  
-3. Renomeie o arquivo baixado para **services-account.json**.  
-4. Coloque o arquivo **services-account.json** na pasta backend/src/config/.
-
-**Configuração de variáveis de ambiente:**  
-Crie um arquivo .env na pasta backend e adicione as seguintes variáveis com seus valores:
-
-
-
-```
-URL\_BDMONGO=\<URL\_DE\_SUA\_BASE\_DE\_DADOS\_MONGODB\>  
-JWT\_SECRET=\<SEU\_SEGREDO\_JWT\>  
-FIREBASE\_STORAGE\_BUCKET=\<SEU\_BUCKET\_DE\_FIREBASE\>  
-GOOGLE\_APPLICATION\_CREDENTIALS=./src/config/services-account.json  
-PORT=\<PORTA A SER USADA\>
-```
-**Execução do servidor:**  
-Para iniciar em modo desenvolvimento:
-
-```
-npm run dev
-```
-
-Para compilar e executar:
-
-```
-npm run build  
-npm start
-```
-
-### **Frontend**
-
-**Instalação de dependências:**
-
-Bash
-
-```
-cd frontend  
-npm install
-```
-
-**Execução do cliente:**  
-Inicia o servidor de desenvolvimento:
-
-```
-npm run dev
-```
+O projeto utiliza uma arquitetura moderna com **React (Vite)** no Frontend e **Node.js (Express)** no Backend, com autenticação híbrida via JWT e Google Firebase.
 
 ---
 
-## **Tecnologias Utilizadas**
+## ✨ Funcionalidades Principais
 
-### **Backend**
+### 👤 Área do Estudante
+*   **Catálogo Interativo:** Busca avançada de livros por título, autor ou categoria com filtros dinâmicos.
+*   **Empréstimos:** Visualização de empréstimos ativos e prazos de devolução.
+*   **Histórico:** Registro completo de todos os livros já lidos.
+*   **Perfil & Favoritos:** Gerenciamento de dados pessoais e lista de leitura.
 
-* **Node.js** e **TypeScript**.  
-* **Express** para criar o servidor.  
-* **Mongoose** para a conexão com **MongoDB**.  
-* **Firebase** para gerenciar imagens.  
-* **JWT** (JSON Web Tokens) para autenticação segura.  
-* **Multer** para a subida de arquivos.
+### 🛡️ Área do Administrador
+*   **Dashboard:** Visão geral com métricas (Total de usuários, livros, empréstimos ativos).
+*   **Gestão de Livros:** CRUD completo com upload de imagens de capa.
+*   **Gestão de Usuários:** Controle de alunos cadastrados.
+*   **Controle de Empréstimos:** Aprovação de retiradas e registro de devoluções.
 
-### **Frontend**
-
-* **React** e **TypeScript**.  
-* **TailwindCSS** para o design da interface.  
-* **React Router** para o gerenciamento de rotas.  
-* **Axios** para as solicitações HTTP.  
-* **Date-fns** para o manejo de datas.
-
----
-
-## **Descrição do Desenvolvimento**
-
-O sistema de biblioteca foi projetado para fornecer uma solução moderna para a gestão bibliotecária.
-
-### **Backend**
-
-* Desenvolvido com Node.js e TypeScript para garantir um código robusto e tipado.  
-* Implementa JWT para autenticação e protege as rotas sensíveis.  
-* Integra **Firebase Storage** para o gerenciamento de imagens e **Multer** para a subida de arquivos.
-
-### **Frontend**
-
-* Criado com React e TypeScript, com um design responsivo utilizando TailwindCSS.  
-* Consome a API do backend através do **Axios**.  
-* Implementa uma experiência de usuário fluida com **React Router** e componentes reutilizáveis.
+### 🔐 Autenticação & Segurança
+*   Login tradicional (Email/Senha) com JWT.
+*   **Login Social com Google** (Firebase Auth).
+*   Proteção de rotas por níveis de acesso (Role-based access control).
+*   Persistência de sessão segura.
 
 ---
 
-## **Próximos Passos**
+## 🛠️ Tecnologias Utilizadas
 
-* Melhorar o sistema de notificações para os usuários.  
-* Adicionar funcionalidades avançadas como geração de relatórios.  
-* Otimizar o desempenho geral do sistema.
+### Frontend
+-   **React** + **TypeScript** + **Vite** (Alta performance)
+-   **Tailwind CSS** (Estilização moderna e responsiva)
+-   **Context API** (Gerenciamento de estado global)
+-   **React Router Dom** (Navegação SPA)
+-   **Firebase SDK** (Autenticação Google no cliente)
+-   **Lucide React** & **Heroicons** (Ícones)
+
+### Backend
+-   **Node.js** + **Express**
+-   **TypeScript** (Segurança de tipos)
+-   **MongoDB** + **Mongoose** (Banco de dados NoSQL)
+-   **Multer** (Upload de arquivos/capas)
+-   **Firebase Admin SDK** (Validação de tokens Google)
+-   **Bcryptjs** & **JWT** (Criptografia e Tokens)
+
+---
+
+## ⚙️ Instalação e Configuração
+
+### Pré-requisitos
+*   Node.js (v18+)
+*   MongoDB (Atlas ou Local)
+*   Conta no Firebase (para Login Google)
+
+### 1. Configuração do Backend
+
+1.  Acesse a pasta:
+    ```bash
+    cd backend
+    ```
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Configure o arquivo `.env` (crie na raiz de `backend/`):
+    ```env
+    PORT=8000
+    URL_BDMONGO=sua_string_de_conexao_mongodb
+    JWT_SECRET=seu_segredo_super_secreto
+    GOOGLE_APPLICATION_CREDENTIALS=./src/config/services-account.json
+    FIREBASE_STORAGE_BUCKET=seu-app.appspot.com
+    BASE_URL=http://localhost:8000
+    ```
+4.  **Firebase Admin SDK:**
+    *   Baixe a chave privada do seu projeto Firebase (Project Settings > Service Accounts).
+    *   Salve como `services-account.json` em `backend/src/config/`.
+
+5.  **Inicialize o Banco de Dados (Seed):**
+    *   Para criar o usuário admin padrão e livros de exemplo:
+    ```bash
+    npm run seed
+    ```
+    *   *Admin Padrão:* `admin@library.com` / `admin123`
+
+6.  Inicie o servidor:
+    ```bash
+    npm run dev
+    ```
+
+### 2. Configuração do Frontend
+
+1.  Acesse a pasta:
+    ```bash
+    cd frontend
+    ```
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Configure o arquivo `.env` (crie na raiz de `frontend/`):
+    ```env
+    VITE_API_KEY=sua_firebase_api_key
+    VITE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
+    VITE_PROJECT_ID=seu_project_id
+    VITE_STORAGE_BUCKET=seu_bucket.appspot.com
+    VITE_MESSAGING_SENDER_ID=seu_sender_id
+    VITE_APP_ID=seu_app_id
+    ```
+4.  Inicie a aplicação:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📂 Estrutura de Pastas
+
+```
+eMDS-Sistema-de-Biblioteca/
+├── backend/                # API Node.js
+│   ├── src/
+│   │   ├── config/         # Configuração de DB, Multer, Firebase
+│   │   ├── controllers/    # Lógica de negócios
+│   │   ├── middleware/     # Auth e validações
+│   │   ├── models/         # Schemas do Mongoose (User, Book, Loan)
+│   │   ├── routes/         # Rotas da API
+│   │   └── index.ts        # Entry point
+│   └── uploads/            # Armazenamento local de imagens
+│
+└── frontend/               # Aplicação React
+    ├── src/
+    │   ├── assets/         # Imagens e ícones
+    │   ├── components/     # Componentes reutilizáveis (UI)
+    │   ├── contexts/       # Auth e Cart Context
+    │   ├── layouts/        # Layouts de Admin e User
+    │   ├── pages/          # Páginas da aplicação
+    │   └── services/       # Integração com API
+    └── ...
+```
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
