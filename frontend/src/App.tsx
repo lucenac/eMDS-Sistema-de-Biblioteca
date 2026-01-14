@@ -34,14 +34,12 @@ function App() {
       <AuthProvider>
         <CartProvider>
           <Routes>
-
             <Route element={<AuthLayout />}>
               <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/esqueci-senha" element={<ForgotPassword />} />
               <Route path="/suporte-publico" element={<Suporte publico={true} />} />
-
             </Route>
 
 

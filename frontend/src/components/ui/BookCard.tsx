@@ -18,7 +18,7 @@ export const BookCard = ({ title, author, category, rating = 4, coverColor = 'bg
             absolute inset-0 rounded-r-md shadow-2xl overflow-hidden
             group-hover:-translate-y-4 group-hover:-translate-x-1 group-hover:rotate-y-[-10deg] 
             transition-all duration-500 ease-out origin-left
-            ${!coverUrl ? coverColor : 'bg-white'}
+            ${coverUrl ? 'bg-white' : coverColor}
             flex flex-col border-l-4 border-white/20
         `}>
                     {coverUrl ? (
@@ -56,8 +56,8 @@ export const BookCard = ({ title, author, category, rating = 4, coverColor = 'bg
             {/* Info */}
             <div className="text-center mt-2 group-hover:opacity-100 transition-opacity">
                 <div className="flex justify-center gap-0.5 mb-1">
-                    {[...Array(5)].map((_, i) => (
-                        <StarIcon key={i} className={`h-3 w-3 ${i < rating ? 'text-accent-yellow' : 'text-gray-600'}`} />
+                    {[0, 1, 2, 3, 4].map((ratingValue) => (
+                        <StarIcon key={ratingValue} className={`h-3 w-3 ${ratingValue < rating ? 'text-accent-yellow' : 'text-gray-600'}`} />
                     ))}
                 </div>
                 <span className="inline-block px-2 py-0.5 rounded-md bg-surface border border-white/10 text-[10px] text-indigo-200 uppercase tracking-widest">

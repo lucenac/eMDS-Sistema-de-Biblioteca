@@ -33,8 +33,8 @@ export const DashboardAdmin = () => {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {stats.map((stat, idx) => (
-                    <div key={idx} className={`bg-surface backdrop-blur-xl p-6 rounded-3xl border ${stat.border} shadow-lg relative overflow-hidden group`}>
+                {stats.map((stat) => (
+                    <div key={stat.label} className={`bg-surface backdrop-blur-xl p-6 rounded-3xl border ${stat.border} shadow-lg relative overflow-hidden group`}>
                         {/* Hover Glow */}
                         <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full ${stat.bg} filter blur-2xl group-hover:blur-3xl transition-all opacity-50`}></div>
 
@@ -65,7 +65,7 @@ export const DashboardAdmin = () => {
                     {/* Fake Chart Bars using CSS */}
                     <div className="h-64 flex items-end justify-between gap-4 px-4">
                         {[40, 65, 30, 80, 55, 90, 45].map((h, i) => (
-                            <div key={i} className="w-full bg-indigo-900/30 rounded-t-xl relative group">
+                            <div key={`param-${i}`} className="w-full bg-indigo-900/30 rounded-t-xl relative group">
                                 <div
                                     className="absolute bottom-0 w-full bg-gradient-to-t from-accent-yellow/10 to-accent-yellow rounded-t-xl transition-all duration-1000 ease-out group-hover:opacity-100"
                                     style={{ height: `${h}%` }}

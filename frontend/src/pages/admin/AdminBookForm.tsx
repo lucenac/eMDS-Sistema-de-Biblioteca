@@ -76,7 +76,7 @@ export const AdminBookForm = () => {
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
+        if (e.target.files?.[0]) {
             const file = e.target.files[0];
             setCoverFile(file);
             setPreviewUrl(URL.createObjectURL(file));
@@ -111,7 +111,7 @@ export const AdminBookForm = () => {
             const data = new FormData();
             Object.keys(formData).forEach(key => {
                 if (key !== 'coverUrl') {
-                    data.append(key, (formData as any)[key]);
+                    data.append(key, String((formData as unknown as Record<string, any>)[key]));
                 }
             });
 
@@ -268,10 +268,11 @@ export const AdminBookForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-indigo-300 flex items-center gap-2">
+                        <label htmlFor="status" className="text-sm font-medium text-indigo-300 flex items-center gap-2">
                             Status
                         </label>
                         <select
+                            id="status"
                             name="status"
                             value={formData.status}
                             onChange={handleChange}
@@ -284,10 +285,11 @@ export const AdminBookForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-indigo-300 flex items-center gap-2">
+                        <label htmlFor="coverColor" className="text-sm font-medium text-indigo-300 flex items-center gap-2">
                             Cor da Capa
                         </label>
                         <select
+                            id="coverColor"
                             name="coverColor"
                             value={formData.coverColor}
                             onChange={handleChange}
@@ -332,8 +334,9 @@ export const AdminBookForm = () => {
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-indigo-300">Descrição</label>
+                    <label htmlFor="description" className="text-sm font-medium text-indigo-300">Descrição</label>
                     <textarea
+                        id="description"
                         rows={4}
                         name="description"
                         value={formData.description}

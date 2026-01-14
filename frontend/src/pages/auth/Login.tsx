@@ -24,6 +24,7 @@ export const Login = () => {
         alert('Erro: Papel de usuário desconhecido.');
       }
     } catch (error) {
+      console.error("Login failed:", error);
       alert('Falha no login. Verifique suas credenciais.');
     }
   };

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Loan from "../models/Loan";
 import Book from "../models/Book";
-import User from "../models/User";
+
 
 export const getAllLoans = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -10,6 +10,7 @@ export const getAllLoans = async (req: Request, res: Response): Promise<void> =>
             .populate('userId', 'name email registration');
         res.json(loans);
     } catch (error) {
+        console.error("Error fetching loans:", error);
         res.status(500).json({ msg: "Error fetching loans" });
     }
 };
@@ -21,6 +22,7 @@ export const getMyLoans = async (req: Request, res: Response): Promise<void> => 
         const loans = await Loan.find({ userId }).populate('bookId', 'title author coverColor');
         res.json(loans);
     } catch (error) {
+        console.error("Error fetching user loans:", error);
         res.status(500).json({ msg: "Error fetching user loans" });
     }
 };
@@ -30,7 +32,7 @@ export const createLoan = async (req: Request, res: Response): Promise<void> => 
         const { bookId, userId, days } = req.body;
 
         const book = await Book.findById(bookId);
-        if (!book || book.status !== 'Available') {
+        if (book?.status !== 'Available') {
             res.status(400).json({ msg: "Book is not available" });
             return;
         }
@@ -81,6 +83,7 @@ export const returnBook = async (req: Request, res: Response): Promise<void> => 
         res.json({ msg: "Book returned successfully" });
 
     } catch (error) {
+        console.error("Error returning book:", error);
         res.status(500).json({ msg: "Error returning book" });
     }
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+
 import {
     PlusIcon,
     PencilSquareIcon,
@@ -21,7 +21,7 @@ const mapStatus = (status: string) => {
 export const GerenciarLivros = () => {
     const [books, setBooks] = useState<any[]>([]);
     const navigate = useNavigate();
-    const { } = useAuth(); // Unused for now
+    // const { } = useAuth(); // Unused removed
 
     useEffect(() => {
         fetchBooks();
@@ -48,7 +48,7 @@ export const GerenciarLivros = () => {
     };
 
     const handleDelete = async (id: string) => {
-        if (window.confirm('Tem certeza que deseja excluir este livro?')) {
+        if (globalThis.confirm('Tem certeza que deseja excluir este livro?')) {
             // In a real app, call API delete here
             // await fetch(`http://localhost:8000/api/books/${id}`, { method: 'DELETE', headers... });
             setBooks(books.filter(b => b.id !== id));

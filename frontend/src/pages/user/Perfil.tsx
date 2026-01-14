@@ -27,28 +27,28 @@ export const Perfil = () => {
 
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-indigo-200 text-sm font-bold ml-1">Nome Completo</label>
-            <input type="text" defaultValue={userData.nome} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
+            <label htmlFor="nome" className="text-indigo-200 text-sm font-bold ml-1">Nome Completo</label>
+            <input id="nome" type="text" defaultValue={userData.nome} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
           </div>
 
           <div className="space-y-2">
-            <label className="text-indigo-200 text-sm font-bold ml-1">Matrícula</label>
-            <input type="text" defaultValue={userData.matricula} readOnly className="w-full p-4 rounded-xl bg-indigo-950/30 border border-white/5 text-gray-400 cursor-not-allowed" />
+            <label htmlFor="matricula" className="text-indigo-200 text-sm font-bold ml-1">Matrícula</label>
+            <input id="matricula" type="text" defaultValue={userData.matricula} readOnly className="w-full p-4 rounded-xl bg-indigo-950/30 border border-white/5 text-gray-400 cursor-not-allowed" />
           </div>
 
           <div className="space-y-2">
-            <label className="text-indigo-200 text-sm font-bold ml-1">CPF</label>
-            <input type="text" defaultValue={userData.cpf} readOnly className="w-full p-4 rounded-xl bg-indigo-950/30 border border-white/5 text-gray-400 cursor-not-allowed" />
+            <label htmlFor="cpf" className="text-indigo-200 text-sm font-bold ml-1">CPF</label>
+            <input id="cpf" type="text" defaultValue={userData.cpf} readOnly className="w-full p-4 rounded-xl bg-indigo-950/30 border border-white/5 text-gray-400 cursor-not-allowed" />
           </div>
 
           <div className="space-y-2">
-            <label className="text-indigo-200 text-sm font-bold ml-1">Celular</label>
-            <input type="text" defaultValue={userData.celular} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
+            <label htmlFor="celular" className="text-indigo-200 text-sm font-bold ml-1">Celular</label>
+            <input id="celular" type="text" defaultValue={userData.celular} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
           </div>
 
           <div className="space-y-2 md:col-span-2">
-            <label className="text-indigo-200 text-sm font-bold ml-1">E-mail</label>
-            <input type="email" defaultValue={userData.email} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
+            <label htmlFor="email" className="text-indigo-200 text-sm font-bold ml-1">E-mail</label>
+            <input id="email" type="email" defaultValue={userData.email} className="w-full p-4 rounded-xl bg-indigo-950/50 border border-white/10 text-white focus:border-accent-yellow focus:ring-1 focus:ring-accent-yellow transition-all" />
           </div>
 
           <div className="md:col-span-2 flex justify-end mt-4">

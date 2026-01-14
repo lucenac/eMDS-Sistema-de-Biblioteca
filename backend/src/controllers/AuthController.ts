@@ -7,20 +7,19 @@ export const register = async (req: Request, res: Response): Promise<void> => {
     try {
         const { name, email, password, role, registration } = req.body;
 
-        if (!name || !email || !password || !registration) {
-            res.status(400).json({ msg: "Please provide all required fields." });
+        if (typeof name !== 'string' || typeof email !== 'string' || typeof password !== 'string' || typeof registration !== 'string') {
+            res.status(400).json({ msg: "Please provide all required fields as text." });
             return;
         }
 
-        const userExists = await User.findOne({ email });
+        const userExists = await User.findOne({ email: String(email) });
         if (userExists) {
             console.log("Register Fail: Email already exists:", email);
             res.status(400).json({ msg: "Este E-mail já está cadastrado." });
             return;
         }
 
-        // Check for duplicate registration (Matricula)
-        const registrationExists = await User.findOne({ registration });
+        const registrationExists = await User.findOne({ registration: String(registration) });
         if (registrationExists) {
             console.log("Register Fail: Registration ID already exists:", registration);
             res.status(400).json({ msg: "Esta Matrícula já está cadastrada." });
@@ -56,13 +55,18 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, password } = req.body;
 
-        const user = await User.findOne({ email });
+        if (typeof email !== 'string' || typeof password !== 'string') {
+             res.status(400).json({ msg: "Invalid credentials format." });
+             return;
+        }
+
+        const user = await User.findOne({ email: String(email) });
+        
         if (!user) {
             res.status(400).json({ msg: "Invalid credentials." });
             return;
         }
 
-        // Handle strict undefined password check just in case
         if (!user.password) {
             res.status(400).json({ msg: "Invalid credentials." });
             return;
@@ -195,7 +199,7 @@ export const forgotPassword = async (req: Request, res: Response): Promise<void>
             return;
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: String(email) });
 
         if (!user) {
             res.status(404).json({ msg: "Email não encontrado." });

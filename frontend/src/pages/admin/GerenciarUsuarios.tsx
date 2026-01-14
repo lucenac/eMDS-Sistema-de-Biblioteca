@@ -2,21 +2,20 @@ import { useState } from 'react';
 import {
     MagnifyingGlassIcon,
     ShieldCheckIcon,
-    NoSymbolIcon,
     UserIcon
 } from '@heroicons/react/24/outline';
 
 export const GerenciarUsuarios = () => {
     // Mock Data
-    const [users, setUsers] = useState([
+    const [users] = useState([
         { id: 1, name: 'Cláudio Ícaro', email: 'claudio@alu.ufc.br', role: 'Aluno', status: 'Ativo' },
         { id: 2, name: 'Admin Principal', email: 'admin@ufc.br', role: 'Administrador', status: 'Ativo' },
         { id: 3, name: 'João Bloqueado', email: 'joao.b@teste.com', role: 'Aluno', status: 'Bloqueado' },
         { id: 4, name: 'Maria Silva', email: 'maria@teste.com', role: 'Aluno', status: 'Pendente' },
     ]);
 
-    const handleToggleStatus = (id: number) => {
-        if (window.confirm('Alterar status do usuário?')) {
+    const handleToggleStatus = (_id: number) => {
+        if (globalThis.confirm('Alterar status do usuário?')) {
             // Toggle Logic Mock
             alert('Status alterado com sucesso!');
         }

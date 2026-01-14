@@ -19,6 +19,7 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
         req.user = decoded;
         next();
     } catch (err) {
+        console.error("Auth token verification failed:", err);
         res.status(401).json({ msg: 'Token is not valid' });
     }
 };

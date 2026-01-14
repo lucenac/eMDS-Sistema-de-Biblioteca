@@ -7,15 +7,18 @@ export const getBooks = async (req: Request, res: Response): Promise<void> => {
         let query: any = {};
 
         if (search) {
+
+            const searchString = String(search);
+
             query.$or = [
-                { title: { $regex: search, $options: 'i' } },
-                { author: { $regex: search, $options: 'i' } },
-                { isbn: { $regex: search, $options: 'i' } }
+                { title: { $regex: searchString, $options: 'i' } },
+                { author: { $regex: searchString, $options: 'i' } },
+                { isbn: { $regex: searchString, $options: 'i' } }
             ];
         }
 
         if (category && category !== 'Todos') {
-            query.category = category;
+            query.category = String(category);
         }
 
         const books = await Book.find(query);
@@ -35,6 +38,7 @@ export const getBookById = async (req: Request, res: Response): Promise<void> =>
         }
         res.status(200).json(book);
     } catch (error) {
+        console.error("Erro ao buscar livro por ID:", error);
         res.status(500).json({ msg: "Erro interno do servidor" });
     }
 };
@@ -101,6 +105,7 @@ export const deleteBook = async (req: Request, res: Response): Promise<void> => 
         await Book.findByIdAndDelete(req.params.id);
         res.status(200).json({ msg: "Livro deletado com sucesso" });
     } catch (error) {
+        console.error("Erro ao deletar livro:", error);
         res.status(500).json({ msg: "Erro ao deletar livro" });
     }
 };

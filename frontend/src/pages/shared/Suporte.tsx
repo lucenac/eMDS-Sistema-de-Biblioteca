@@ -33,8 +33,9 @@ export const Suporte = ({ publico }: SuporteProps) => {
       <div className="flex flex-col md:flex-row gap-8 items-start">
         <form onSubmit={handleSubmit} className="w-full md:w-2/3 space-y-6">
           <div className="space-y-2">
-            <label className="font-bold text-lg text-white">Seu nome:</label>
+            <label htmlFor="nome" className="font-bold text-lg text-white">Seu nome:</label>
             <input
+              id="nome"
               type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
@@ -44,8 +45,9 @@ export const Suporte = ({ publico }: SuporteProps) => {
           </div>
 
           <div className="space-y-2">
-            <label className="font-bold text-lg text-white">Email:</label>
+            <label htmlFor="email" className="font-bold text-lg text-white">Email:</label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -55,10 +57,11 @@ export const Suporte = ({ publico }: SuporteProps) => {
           </div>
 
           <div className="space-y-2">
-            <label className="font-bold text-lg text-white">
+            <label htmlFor="mensagem" className="font-bold text-lg text-white">
               Escreva aqui sua mensagem:
             </label>
             <textarea
+              id="mensagem"
               rows={6}
               value={mensagem}
               onChange={(e) => setMensagem(e.target.value)}

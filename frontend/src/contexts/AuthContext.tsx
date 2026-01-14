@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useEffect, useContext } from 'react';
+import { createContext, ReactNode, useState, useEffect, useContext, useMemo } from 'react';
 import { User } from '../types';
 
 interface AuthContextType {
@@ -88,8 +88,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsAuthenticated(false);
   };
 
+  const contextValue = useMemo(() => ({
+    user, isAuthenticated, login, logout, setSession, loading
+  }), [user, isAuthenticated, loading]);
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout, setSession, loading }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );

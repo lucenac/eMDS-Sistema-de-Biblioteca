@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Logo from '../../assets/svg/logo.svg';
 
@@ -31,13 +31,13 @@ export const NavbarUser = () => {
     <nav className="w-full bg-transparent h-24 px-4 md:px-12 flex items-center justify-between font-sans relative z-50">
 
       {/* === 1. LOGO === */}
-      <div
+      <Link
+      to="/aluno"
         className="flex flex-col leading-none select-none cursor-pointer hover:scale-105 transition-transform"
-        onClick={() => navigate('/aluno')}
       >
         {/* Placeholder for Logo if svg missing, or use imported */}
         <img src={Logo} alt="eMDS" className="h-12 w-auto drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
-      </div>
+      </Link>
 
       <div className='flex items-center gap-6'>
         {/* === 2. MENU CÁPSULA === */}
