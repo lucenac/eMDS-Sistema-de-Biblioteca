@@ -11,9 +11,24 @@ interface BookCardProps {
     onClick?: () => void;
 }
 
-export const BookCard = ({ title, author, category, rating = 4, coverColor = 'bg-blue-600', coverUrl, onClick }: BookCardProps) => {
+export const BookCard = ({ title, author, category, rating = 4, coverColor = 'bg-blue-600', coverUrl, id, onClick }: BookCardProps) => {
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            onClick();
+        }
+    };
+
     return (
-        <div onClick={onClick} className="flex flex-col gap-3 group cursor-pointer w-full max-w-[180px]">
+        <div
+            id={id}
+            onClick={onClick}
+            onKeyDown={handleKeyDown}
+            role="button"
+            tabIndex={0}
+            className="flex flex-col gap-3 group cursor-pointer w-full max-w-[180px] focus:outline-none focus:ring-2 focus:ring-accent-yellow rounded-lg p-1"
+        >
             <div className="relative aspect-[2/3] perspective-500">
                 <div className={`
             absolute inset-0 rounded-r-md shadow-2xl overflow-hidden

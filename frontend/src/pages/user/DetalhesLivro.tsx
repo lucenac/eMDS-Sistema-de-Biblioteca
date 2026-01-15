@@ -196,8 +196,9 @@ export const DetalhesLivro = () => {
         <h3 className="text-2xl font-bold text-white mb-6">Comentários e Avaliações</h3>
 
         <form onSubmit={handleCommentSubmit} className="mb-8 p-6 bg-white/5 rounded-2xl border border-white/5">
-          <label className="block text-indigo-300 mb-2 font-medium">Deixe seu comentário sobre este livro:</label>
+          <label htmlFor="comment" className="block text-indigo-300 mb-2 font-medium">Deixe seu comentário sobre este livro:</label>
           <textarea
+            id="comment"
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             className="w-full bg-indigo-950/50 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-accent-yellow transition-colors resize-none mb-4"
