@@ -21,7 +21,6 @@ const mapStatus = (status: string) => {
 export const GerenciarLivros = () => {
     const [books, setBooks] = useState<any[]>([]);
     const navigate = useNavigate();
-    // const { } = useAuth(); // Unused removed
 
     useEffect(() => {
         fetchBooks();

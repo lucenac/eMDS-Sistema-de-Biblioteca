@@ -14,7 +14,9 @@ const seed = async () => {
         const adminEmail = 'admin@library.com';
         const userExists = await User.findOne({ email: adminEmail });
 
-        if (!userExists) {
+        if (userExists) {
+            console.log('Admin user already exists');
+        } else {
             const salt = await bcryptjs.genSalt(10);
             const password = await bcryptjs.hash('admin123', salt);
 
@@ -27,8 +29,6 @@ const seed = async () => {
             });
             await admin.save();
             console.log('Admin user created');
-        } else {
-            console.log('Admin user already exists');
         }
 
         const books = [

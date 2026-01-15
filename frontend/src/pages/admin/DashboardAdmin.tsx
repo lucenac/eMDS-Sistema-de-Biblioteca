@@ -64,14 +64,22 @@ export const DashboardAdmin = () => {
 
                     {/* Fake Chart Bars using CSS */}
                     <div className="h-64 flex items-end justify-between gap-4 px-4">
-                        {[40, 65, 30, 80, 55, 90, 45].map((h, i) => (
-                            <div key={`param-${i}`} className="w-full bg-indigo-900/30 rounded-t-xl relative group">
+                        {[
+                            { h: 40, day: 'Seg' },
+                            { h: 65, day: 'Ter' },
+                            { h: 30, day: 'Qua' },
+                            { h: 80, day: 'Qui' },
+                            { h: 55, day: 'Sex' },
+                            { h: 90, day: 'Sab' },
+                            { h: 45, day: 'Dom' }
+                        ].map((item) => (
+                            <div key={item.day} className="w-full bg-indigo-900/30 rounded-t-xl relative group">
                                 <div
                                     className="absolute bottom-0 w-full bg-gradient-to-t from-accent-yellow/10 to-accent-yellow rounded-t-xl transition-all duration-1000 ease-out group-hover:opacity-100"
-                                    style={{ height: `${h}%` }}
+                                    style={{ height: `${item.h}%` }}
                                 ></div>
                                 <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-indigo-400 font-mono">
-                                    {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'][i]}
+                                    {item.day}
                                 </span>
                             </div>
                         ))}

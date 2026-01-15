@@ -1,4 +1,4 @@
-import * as admin from "firebase-admin";
+import firebaseAdmin from "firebase-admin";
 import path from "node:path";
 
 const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -13,8 +13,8 @@ const absolutePath = path.resolve(serviceAccount);
 console.log("Tentando ler credenciais em:", absolutePath);
 
 try {
-  admin.initializeApp({
-    credential: admin.credential.cert(require(path.resolve(serviceAccount))),
+  firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert(require(path.resolve(serviceAccount))),
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET
   });
 } catch (error) {
@@ -22,7 +22,7 @@ try {
   process.exit(1);
 }
 
-const bucket = admin.storage().bucket();
+const bucket = firebaseAdmin.storage().bucket();
 
-export { admin };
+export const admin = firebaseAdmin;
 export default bucket;

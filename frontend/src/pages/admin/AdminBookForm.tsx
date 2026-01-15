@@ -306,11 +306,12 @@ export const AdminBookForm = () => {
                         <div className={`mt-2 h-8 w-full rounded ${formData.coverColor}`}></div>
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-indigo-300 flex items-center gap-2">
+                        <span className="text-sm font-medium text-indigo-300 flex items-center gap-2">
                             Capa do Livro
-                        </label>
+                        </span>
                         <div className="flex items-start gap-4">
                             <label className="flex-1 cursor-pointer group">
+                                <span className="sr-only">Selecione uma capa para o livro</span>
                                 <div className="border-2 border-dashed border-indigo-500/30 rounded-lg p-4 text-center hover:border-accent-yellow transition-colors bg-indigo-950/30">
                                     <p className="text-sm text-indigo-300 group-hover:text-accent-yellow transition-colors">
                                         Clique para selecionar uma imagem

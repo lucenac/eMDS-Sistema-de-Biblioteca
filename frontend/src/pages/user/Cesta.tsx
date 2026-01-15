@@ -10,7 +10,7 @@ export const Cesta = () => {
   return (
     <div className="max-w-6xl mx-auto space-y-8 pb-12">
       <h1 className="text-3xl font-black text-white tracking-tight flex items-center gap-3">
-        <span className="bg-accent-yellow text-primary-bg rounded-lg px-2 text-2xl">2</span>
+        <span className="bg-accent-yellow text-primary-bg rounded-lg px-2 text-2xl mr-1">2</span>
         Sua Cesta
       </h1>
 
