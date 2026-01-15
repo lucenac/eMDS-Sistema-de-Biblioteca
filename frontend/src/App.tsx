@@ -23,6 +23,7 @@ import { BuscaLivros } from './pages/user/BuscaLivros';
 import { Cesta } from './pages/user/Cesta';
 import { Historico } from './pages/user/Historico';
 import { Perfil } from './pages/user/Perfil';
+import { DetalhesLivro } from './pages/user/DetalhesLivro';
 
 import { Cadastro } from './pages/auth/Cadastro';
 import { ForgotPassword } from './pages/auth/ForgotPassword';
@@ -51,6 +52,7 @@ function App() {
                 <Route path="cesta" element={<Cesta />} />
                 <Route path="historico" element={<Historico />} />
                 <Route path="perfil" element={<Perfil />} />
+                <Route path="livros/:id" element={<DetalhesLivro />} />
                 <Route path="suporte" element={<Suporte />} />
               </Route>
             </Route>

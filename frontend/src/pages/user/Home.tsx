@@ -123,10 +123,12 @@ export default function HomeUser() {
           {recommendations.map((book) => (
             <div key={book.id} className="flex justify-center">
               <BookCard
+                id={String(book.id)}
                 title={book.title}
                 author={book.author}
                 category={book.category}
                 coverColor={book.color}
+                onClick={() => { }} // Sis de recomendação, sem ação por enquanto
               />
             </div>
           ))}

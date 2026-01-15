@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
 import { BookCard } from '../../components/ui/BookCard';
 
 export const BuscaLivros = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [books, setBooks] = useState<any[]>([]);
@@ -104,11 +106,13 @@ export const BuscaLivros = () => {
             {books.map((book) => (
               <div key={book.id} className="flex justify-center">
                 <BookCard
+                  id={book.id}
                   title={book.title}
                   author={book.author}
                   category={book.category}
                   coverColor={book.coverColor}
                   coverUrl={book.coverUrl}
+                  onClick={() => navigate(`/aluno/livros/${book.id}`)}
                 />
               </div>
             ))}
