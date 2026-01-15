@@ -24,5 +24,5 @@ try {
 
 const bucket = firebaseAdmin.storage().bucket();
 
-export const admin = firebaseAdmin;
+export { default as admin } from "firebase-admin";
 export default bucket;

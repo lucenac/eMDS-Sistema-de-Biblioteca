@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginIllustration from '../../assets/login_illustration.png';
+import LoginIllustration from '../../assets/png/loginPhoto.png';
 import Logo from '../../assets/svg/logo.svg';
 
 export const Cadastro = () => {
@@ -119,19 +119,14 @@ export const Cadastro = () => {
 
             </div>
 
-            {/* === RIGHT COLUMN: ILLUSTRATION === */}
             <div className="hidden md:flex w-1/2 relative bg-indigo-900/20 items-center justify-center overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-                <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary-bg via-transparent to-transparent opacity-80 z-10"></div>
+                <div className="absolute bottom-0 left-0 w-full h-full from-primary-bg via-transparent to-transparent opacity-80 z-10"></div>
                 <img
                     src={LoginIllustration}
                     alt="Library 3D"
-                    className="relative z-0 w-[110%] h-auto object-cover opacity-90 mix-blend-lighten hover:scale-105 transition-transform duration-1000 ease-out"
+                    className="relative z-0 w-[110%] h-auto object-cover hover:scale-105 transition-transform duration-1000 ease-out"
                 />
-                <div className="absolute bottom-8 left-8 z-20 max-w-xs">
-                    <h3 className="text-xl font-bold text-white mb-1 leading-tight">Junte-se ao Futuro</h3>
-                    <p className="text-indigo-200 text-xs leading-relaxed">Crie sua conta para começar a reservar livros e acessar conteúdo exclusivo.</p>
-                </div>
             </div>
 
         </div>
